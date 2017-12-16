@@ -1,0 +1,20 @@
+
+
+<h4>  <small> <b>Detalles sobre:</b> {{ detalleDetenido.nombre }} </small></h4>
+<HR>
+
+<div class="row">
+  <div class="col-md-4">
+      <img width="50px" height="200px" class="card-img-top" [src]="detalleDetenido.img" [alt]="detalleDetenido.nombre">
+      <br><br>
+      <button type="button"  (click)="volverHome()" class="btn btn-outline-primary btn-block">Volver</button>
+    </div>
+  <div class="col-md-8">
+      <h4>  <small> <b>Nombre:</b> {{ detalleDetenido.nombre }} </small></h4>
+      <h4>  <small> <b>Edad:</b> {{ detalleDetenido.edad }} </small></h4>
+      <h4>  <small> <b>Información:</b> </small></h4>
+      <p class="card-text">{{ detalleDetenido.informacion }}</p>
+  </div>
+
+</div>
+

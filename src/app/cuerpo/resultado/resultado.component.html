@@ -1,0 +1,75 @@
+
+<br>
+
+<!-- Los Tags de Filtro-->
+   
+<div class="row" *ngIf="this.criterio==null || this.criterio==''">
+        <div class="col-md-2" >
+         <b> Filtrar por: </b>
+        </div>
+        <div class="col-md-2" >
+          <button type="button"  (click)="filtrarLista('oukacha')" class="btn btn-outline-primary btn-sm">
+              Carcel Oukacha: {{ numOukacha }}
+          </button>  
+        </div>
+
+        <div class="col-md-2" >
+            <button type="button"  (click)="filtrarLista('alhucemas')" class="btn btn-outline-primary btn-sm">
+                Carcel Al Hoceima: {{ numAlhoceima }}
+            </button>  
+        </div>
+
+        <div class="col-md-2" >
+            <button type="button"  (click)="filtrarLista('otros')" class="btn btn-outline-primary btn-sm">
+                Otros: {{ numOthers }}
+            </button>  
+        </div>
+
+        <div class="col-md-2" >
+            <button type="button"  (click)="filtrarLista('todos')" class="btn btn-outline-primary btn-sm">
+                Num Total: {{ numOukacha + numAlhoceima + numOthers }}
+            </button>  
+        </div>
+    </div>
+  
+  <hr>
+
+<div *ngIf="(detenidos.length==0)" class="row">
+  <div class="col-md-12">
+      <div class="alert alert-info">
+          No hay resultados para: {{ criterio }}.
+    </div>
+    </div>
+</div>
+<div *ngIf="(detenidos.length > 0)">
+
+    <div class="row">
+        <div class="col-md-3" *ngFor="let detenido of detenidos">
+            <div class="card" style="width: 5;">
+                <img width="100px" height="200px"  class="card-img-top" [src]="detenido.img" [alt]="detenido.nombre">
+                <div class="card-body">
+                  <h6 class="card-title"><b>{{ detenido.nombre }}, {{ detenido.edad }}</b></h6>
+                  <p class="card-text">{{ detenido.informacion | slice:0:100 }}...</p>
+                  <button type="button" 
+                  (click)="verDetalle(detenido.key$)"
+                    class="btn btn-outline-primary btn-block">Leer más...</button>
+                </div>
+              </div>
+        </div>
+      </div>
+
+  <!-- Pagina de Inicio 
+  <div class="card-columns">
+      <div *ngFor="let detenido of detenidos" class="card">
+          <img width="100px" height="200px" class="card-img-top" [src]="detenido.img" [alt]="detenido.nombre">
+          <div class="card-body">
+            <h4 class="card-title">{{ detenido.nombre }}, {{ detenido.edad }}</h4>
+            <p class="card-text">{{ detenido.informacion | slice:0:100 }}...</p>
+            <button type="button" 
+              (click)="verDetalle(detenido.key$)"
+              class="btn btn-outline-primary btn-block">Leer más...</button>
+          </div>
+        </div>
+  </div>-->
+  </div>
+

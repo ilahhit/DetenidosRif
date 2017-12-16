@@ -1,0 +1,150 @@
+<div *ngIf="connectado==false">
+    <div *ngIf="connectado==false && mensajeConectar!=''" class="alert alert-danger">{{ mensajeConectar }}</div>
+<form>  
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Usuario:</label>
+              <input [(ngModel)]="this.usuario"
+                     name = "usuario"
+                     class="form-control" 
+                     type="text" 
+                     placeholder="Usuario Admin" 
+                     required>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Password:</label>
+            <input [(ngModel)]="this.password"
+                   name = "password"
+                   class="form-control" 
+                   type="password" 
+                   placeholder="password Admin" 
+                   required>
+          </div>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+  
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button type="button"
+                  (click)="connectar()"
+                  class="btn btn-outline-primary btn-block">
+              Conectar
+          </button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+  </form>
+
+</div>
+
+<div *ngIf="connectado==true">
+
+<br>
+<h4> Agregar/Modificar Detenido </h4>
+<hr>
+
+<div *ngIf="guardado==true  && this.mensaje!=null && this.mensaje!=''" class="alert alert-success"> {{ this.mensaje }} </div>
+<div *ngIf="guardado==false && this.mensaje!=null && this.mensaje!=''" class="alert alert-danger">{{ this.mensaje }}</div>
+
+
+
+<form (ngSubmit)="guardarDetenido(forma)" #forma="ngForm">
+  <div class="row">
+    <div class="col-md-6">
+        <select [(ngModel)]="selectedDevice" (ngModelChange)="onChange($event)" name="selectedDevice">
+            <option value="I" selected>Toca para Insertar o elige nombre para modificar:</option>
+            <option *ngFor="let option of detenidos" 
+                    value="{{option.key$}}"
+                    (change)="getDetenido(this)"
+                    >
+                {{option.nombre}}
+             </option>
+        </select>
+
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Nombre:</label>
+            <input [(ngModel)]="this.detenido.nombre"
+                   name = "nombre"
+                   class="form-control" 
+                   type="text" 
+                   placeholder="Nombre del detenido" 
+                   required>
+          </div>
+      </div>
+
+      <div class="col-md-6">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Edad:</label>
+            <input  [(ngModel)]="this.detenido.edad" 
+                    name="edad"
+                    class="form-control" 
+                    type="text" 
+                    placeholder="Edad del detenido"
+                    required>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Foto:</label>
+        <input type="file"
+               [name]="this.detenido.img"
+               (change)="recogerFicheroSeleccionado($event)" 
+               class="form-control" >
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Información:</label>
+        <textarea class="form-control" 
+                  id="exampleFormControlTextarea1"
+                  [(ngModel)]="this.detenido.informacion" 
+                  name="informacion"
+                  rows="3" 
+                  required>
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-6">
+        <button type="submit"
+                class="btn btn-outline-primary btn-block">
+            Guardar
+        </button>
+      </div>
+      <div class="col-md-6">
+          <button type="button" 
+                  (click)="limparTodo()"
+                  class="btn btn-outline-primary btn-block">
+            Cancelar
+          </button>
+        </div>
+  </div>
+</form>
+<pre>
+
+  {{ this.detenido | json }}
+
+</pre>
