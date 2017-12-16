@@ -146,14 +146,18 @@ export class AdminComponent implements OnInit {
     if (resultOK){
       this.mensaje="Modificado con éxito.";
       this.guardado=true;
+      console.log("mensaje: "+this.mensaje);
+      /*
       formulario.controls.selectedDevice.setValue("I");
       formulario.controls.nombre.setValue("");
       formulario.controls.edad.setValue("");
       formulario.controls.informacion.setValue("");
+      */
     }else{
       console.log("ELSE .");
       this.guardado=false;
       this.mensaje="No se ha podido guardar.";
+      console.log("mensaje: "+this.mensaje);
     }
     /*
     this._servicioData.cargarFoto(this.file, this.file.name, this.detenido, insertar).subscribe(res =>{
