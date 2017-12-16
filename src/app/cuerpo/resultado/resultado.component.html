@@ -2,38 +2,6 @@
 <br>
 
 <!-- Los Tags de Filtro-->
-   
-<div class="row" *ngIf="this.criterio==null || this.criterio==''">
-        <div class="col-md-2" >
-         <b> Filtrar por: </b>
-        </div>
-        <div class="col-md-2" >
-          <button type="button"  (click)="filtrarLista('oukacha')" class="btn btn-outline-primary btn-sm">
-              Carcel Oukacha: {{ numOukacha }}
-          </button>  
-        </div>
-
-        <div class="col-md-2" >
-            <button type="button"  (click)="filtrarLista('alhucemas')" class="btn btn-outline-primary btn-sm">
-                Carcel Al Hoceima: {{ numAlhoceima }}
-            </button>  
-        </div>
-
-        <div class="col-md-2" >
-            <button type="button"  (click)="filtrarLista('otros')" class="btn btn-outline-primary btn-sm">
-                Otros: {{ numOthers }}
-            </button>  
-        </div>
-
-        <div class="col-md-2" >
-            <button type="button"  (click)="filtrarLista('todos')" class="btn btn-outline-primary btn-sm">
-                Num Total: {{ numOukacha + numAlhoceima + numOthers }}
-            </button>  
-        </div>
-    </div>
-  
-  <hr>
-
 <div *ngIf="(detenidos.length==0)" class="row">
   <div class="col-md-12">
       <div class="alert alert-info">
@@ -42,7 +10,6 @@
     </div>
 </div>
 <div *ngIf="(detenidos.length > 0)">
-
     <div class="row">
         <div class="col-md-3" *ngFor="let detenido of detenidos">
             <div class="card" style="width: 5;">

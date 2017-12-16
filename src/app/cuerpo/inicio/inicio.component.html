@@ -17,38 +17,34 @@
 -->
 
 <!-- Los Tags de Filtro-->
-    
       <div class="row">
-          <div class="col-md-2" >
-           <b> Filtrar por: </b>
+          <div>
+           <b> Filtrar por: </b>&nbsp;
           </div>
-          <div class="col-md-2" >
-            <button type="button"  (click)="filtrarLista('oukacha')" class="btn btn-outline-primary btn-sm">
+          <div>
+            <button type="button"  (click)="filtrarLista('oukacha')" class="btn btn-outline-primary">
                 Carcel Oukacha: {{ numOukacha }}
-            </button>  
+            </button> 
           </div>
-
-          <div class="col-md-2" >
-              <button type="button"  (click)="filtrarLista('alhucemas')" class="btn btn-outline-primary btn-sm">
+          &nbsp;
+          <div>
+              <button type="button"  (click)="filtrarLista('alhucemas')" class="btn btn-outline-primary">
                   Carcel Al Hoceima: {{ numAlhoceima }}
               </button>  
           </div>
-
-          <div class="col-md-2" >
-              <button type="button"  (click)="filtrarLista('otros')" class="btn btn-outline-primary btn-sm">
+          &nbsp;
+          <div>
+              <button type="button"  (click)="filtrarLista('otros')" class="btn btn-outline-primary">
                   Otros: {{ numOthers }}
               </button>  
           </div>
-
-          <div class="col-md-2" >
-              <button type="button"  (click)="filtrarLista('todos')" class="btn btn-outline-primary btn-sm">
+          &nbsp;
+          <div >
+              <button type="button"  (click)="filtrarLista('todos')" class="btn btn-outline-primary">
                   Num Total: {{ numOukacha + numAlhoceima + numOthers }}
               </button>  
           </div>
-          <div class="col-md-2" >
-          </div>
       </div>
-    
     <hr>
 <!-- Pagina de Inicio -->
 <div class="row">
